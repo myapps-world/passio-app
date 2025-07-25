@@ -1,0 +1,109 @@
+{
+  "expo": {
+    "name": "Passio",
+    "slug": "passio-subscription-sharing",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#3b82f6"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.passio.subscriptionsharing",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Passio needs camera access to scan QR codes for sharing subscriptions.",
+        "NSLocationWhenInUseUsageDescription": "Passio uses location to verify household sharing compliance.",
+        "NSContactsUsageDescription": "Passio can access contacts to help you find friends to share subscriptions with.",
+        "NSCalendarsUsageDescription": "Passio can access your calendar to set renewal reminders.",
+        "NSFaceIDUsageDescription": "Passio uses Face ID to secure your subscription credentials.",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "associatedDomains": [
+        "applinks:passio.app",
+        "applinks:app.passio.app"
+      ]
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#3b82f6"
+      },
+      "package": "com.passio.subscriptionsharing",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "READ_CONTACTS",
+        "WRITE_CALENDAR",
+        "READ_CALENDAR",
+        "USE_FINGERPRINT",
+        "USE_BIOMETRIC",
+        "INTERNET",
+        "ACCESS_NETWORK_STATE"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "https",
+              "host": "passio.app"
+            },
+            {
+              "scheme": "https",
+              "host": "app.passio.app"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "scheme": "passio",
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-location",
+      "expo-camera",
+      "expo-barcode-scanner",
+      "expo-notifications",
+      "expo-calendar",
+      "expo-contacts",
+      "expo-image-picker"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "your-project-id-here"
+      }
+    },
+    "owner": "passio-team",
+    "privacy": "public",
+    "updates": {
+      "url": "https://u.expo.dev/your-project-id-here"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
+  }
+} 

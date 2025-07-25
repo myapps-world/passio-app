@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "services": {
+    "backend": {
+      "source": "packages/backend",
+      "build": {
+        "buildCommand": "npm run build",
+        "publishDirectory": "dist"
+      },
+      "start": "node dist/index.js",
+      "envVars": {
+        "NODE_ENV": "production",
+        "PORT": "8000"
+      },
+      "healthCheckPath": "/api/health",
+      "autoDeploy": true
+    }
+  },
+  "databases": {
+    "mysql": {
+      "engine": "mysql",
+      "version": "8.0"
+    },
+    "redis": {
+      "engine": "redis",
+      "version": "7"
+    }
+  },
+  "variables": {
+    "DATABASE_URL": "${{mysql.DATABASE_URL}}",
+    "REDIS_URL": "${{redis.REDIS_URL}}",
+    "JWT_SECRET": "${{secrets.JWT_SECRET}}",
+    "ENCRYPTION_KEY": "${{secrets.ENCRYPTION_KEY}}",
+    "STRIPE_SECRET_KEY": "${{secrets.STRIPE_SECRET_KEY}}",
+    "STRIPE_WEBHOOK_SECRET": "${{secrets.STRIPE_WEBHOOK_SECRET}}",
+    "PAYPAL_CLIENT_ID": "${{secrets.PAYPAL_CLIENT_ID}}",
+    "PAYPAL_CLIENT_SECRET": "${{secrets.PAYPAL_CLIENT_SECRET}}",
+    "EMAIL_HOST": "${{secrets.EMAIL_HOST}}",
+    "EMAIL_USER": "${{secrets.EMAIL_USER}}",
+    "EMAIL_PASS": "${{secrets.EMAIL_PASS}}"
+  }
+} 

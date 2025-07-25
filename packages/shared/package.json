@@ -1,0 +1,45 @@
+{
+  "name": "@passio/shared",
+  "version": "1.0.0",
+  "description": "Shared utilities and types for Passio application",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "crypto-js": "^4.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6",
+    "@types/crypto-js": "^4.1.1",
+    "jest": "^29.6.2",
+    "@types/jest": "^29.5.3"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js",
+      "require": "./dist/types/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.js",
+      "require": "./dist/utils/index.js"
+    }
+  }
+} 

@@ -1,0 +1,66 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "packages/frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "$BACKEND_URL/api/$1"
+    },
+    {
+      "src": "/socket.io/(.*)",
+      "dest": "$BACKEND_URL/socket.io/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/packages/frontend/dist/$1"
+    }
+  ],
+  "env": {
+    "VITE_API_URL": "@passio_api_url",
+    "VITE_STRIPE_PUBLISHABLE_KEY": "@stripe_publishable_key",
+    "VITE_PAYPAL_CLIENT_ID": "@paypal_client_id"
+  },
+  "build": {
+    "env": {
+      "VITE_API_URL": "@passio_api_url"
+    }
+  },
+  "functions": {
+    "packages/frontend/dist/index.html": {
+      "maxDuration": 30
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-Requested-With, Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!api).*)",
+      "destination": "/index.html"
+    }
+  ]
+} 
