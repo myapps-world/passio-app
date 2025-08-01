@@ -44,7 +44,7 @@ export interface SubscriptionShare {
   userId: string
   role: 'owner' | 'member'
   sharePercentage: number
-  status: 'pending' | 'active' | 'cancelled'
+  status: 'pending' | 'active' | 'declined' | 'removed'
   joinedAt?: string
   lastAccessedAt?: string
   permissions: SharePermissions

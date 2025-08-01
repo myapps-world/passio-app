@@ -47,7 +47,7 @@ export interface SubscriptionShare {
   userId: string
   role: 'owner' | 'member'
   sharePercentage: number
-  status: 'pending' | 'active' | 'cancelled'
+  status: 'pending' | 'active' | 'declined' | 'removed'
   joinedAt?: string
   lastAccessedAt?: string
   permissions: SharePermissions
@@ -285,7 +285,8 @@ export type PaymentStatus = typeof PAYMENT_STATUSES[number]
 export const SHARE_STATUSES = [
   'pending',
   'active',
-  'cancelled'
+  'declined',
+  'removed'
 ] as const
 
 export type ShareStatus = typeof SHARE_STATUSES[number] 
